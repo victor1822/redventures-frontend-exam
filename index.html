@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <title>Front End Test - Greenthumb</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./index.scss" />
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.21.1/axios.min.js"
+      integrity="sha512-bZS47S7sPOxkjU/4Bt0zrhEtWx0y0CRkhEp8IckzK+ltifIIE9EMIMTuT/mEzoIMewUINruDBIR/jJnbguonqQ=="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+
+  <body>
+    <header>
+      <img
+        src="images/hero/mobile/mobile-leaves.png"
+        alt="left plant image"
+        class="mobilePlant"
+      />
+      <img
+        src="images/hero/mobile/mobile-plantperson.png"
+        alt="right plant image"
+        class="plantManMobile"
+      />
+      <img
+        src="images/hero/desktop/left-leaves.png"
+        alt="left plant image"
+        class="leftPlant"
+      />
+      <img
+        src="images/hero/desktop/right-leaves.png"
+        alt="right plant image"
+        class="rightPlant"
+      />
+      <img
+        src="images/hero/desktop/plantperson.png"
+        alt="plant person"
+        class="plantMan"
+      />
+      <div class="content">
+        <img
+          src="images/icons/logo-white.svg"
+          alt="Greenthumb"
+          class="logoIcon"
+        />
+        <h1>Find your next green friend</h1>
+        <img
+          src="images/icons/arrow-down.svg"
+          alt="arrow down icon"
+          class="icon"
+        />
+      </div>
+    </header>
+    <main>
+      <div class="field">
+        <div class="imageWrapper">
+          <img
+            src="images/illustrations/sun.png"
+            alt="sun illustrative image"
+            class="sun"
+          />
+        </div>
+        <p><b>1.</b> Set the amount of <b>sunlight</b> your plant will get.</p>
+        <div class="selectWrapper">
+          <select name="sunlight" id="sunlight" onchange="loadPlants()">
+            <option value="" disabled selected hidden>Select...</option>
+            <option value="no">No sunlight</option>
+            <option value="low">Low sunlight</option>
+            <option value="high">High sunlight</option>
+          </select>
+          <img src="images/icons/fill.svg" alt="caret down icon" />
+        </div>
+      </div>
+      <div class="field">
+        <div class="imageWrapper">
+          <img
+            src="images/illustrations/wateringcan.png"
+            alt="wateringcan illustrative image"
+            class="wateringcan"
+          />
+        </div>
+        <p><b>2.</b> How often do you want to <b>water</b> your plant?</p>
+        <div class="selectWrapper">
+          <select name="wateringcan" id="wateringcan" onchange="loadPlants()">
+            <option value="" disabled selected hidden>Select...</option>
+            <option value="rarely">Rarely</option>
+            <option value="regularly">Regularly</option>
+            <option value="daily">Daily</option>
+          </select>
+          <img src="images/icons/fill.svg" alt="caret down icon" />
+        </div>
+      </div>
+      <div class="field">
+        <div class="imageWrapper">
+          <img
+            src="images/illustrations/dog.png"
+            alt="dog illustrative image"
+            class="dog"
+          />
+        </div>
+        <p><b>3.</b> Do you have pets? Do they <b>chew</b> plants?</p>
+        <div class="selectWrapper">
+          <select name="dog" id="dog" onchange="loadPlants()">
+            <option value="" disabled selected hidden>Select...</option>
+            <option value="false">No/They don't care</option>
+            <option value="true">Yes</option>
+          </select>
+          <img src="images/icons/fill.svg" alt="caret down icon" />
+        </div>
+      </div>
+    </main>
+    <div class="searchResults">
+      <div class="noResults">
+        <img
+          src="images/illustrations/no-results.png"
+          alt="no results illustrative image"
+        />
+        <div class="text">
+          <h1>No results yet...</h1>
+          <h4>
+            Use the filters above to find the plant that best fits your
+            environment :)
+          </h4>
+        </div>
+      </div>
+      <div class="ourPicks hidden">
+        <div class="titles">
+          <img src="images/illustrations/pick.png" alt="illustrative icon" />
+          <h1>Our picks for you</h1>
+        </div>
+        <div class="searchResultsList">
+          <div class="staffFavorite">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <img
+              src="images/icons/staff.svg"
+              alt="staff favorite"
+              class="staffFavoriteImage"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd1">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd2">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd3">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd4">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd5">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd6">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd7">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="staffDefault sd8">
+            <img
+              src="images/plants/bunny-ears-cacti.jpg"
+              class="plantImage"
+              alt="plant image"
+            />
+            <div class="data">
+              <h3 class="title">Bunny ears cacti</h3>
+              <div class="info">
+                <h4 class="price">$25</h4>
+                <div class="icons">
+                  <img
+                    src="images/icons/pet.svg"
+                    alt="dog illustrative icon"
+                    class="infoIcon1"
+                  />
+                  <img
+                    src="images/icons/low-sun.svg"
+                    alt="sun illustrative icon"
+                    class="infoIcon2"
+                  />
+                  <img
+                    src="images/icons/1-drop.svg"
+                    alt="water drop illustrative icon"
+                    class="infoIcon3"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button onclick="window.scrollTo(0,0)">
+          <img src="images/icons/arrow-up.svg" alt="arrow up icon" />
+          <h2>back to the top</h2>
+        </button>
+      </div>
+    </div>
+  </body>
+  <script type="text/javascript">
+    const baseurl = "https://front-br-challenges.web.app/api/v2/green-thumb/";
+    const loadPlants = async () => {
+      const sunlight = document.getElementById("sunlight").value;
+      const wateringcan = document.getElementById("wateringcan").value;
+      const dog = document.getElementById("dog").value === "true";
+      const queryParams = `?sun=${sunlight}&water=${wateringcan}&pets=${dog}`;
+      let plants = []; // names of users will be stored here
+      axios
+        .get(baseurl + queryParams)
+        .then(({ data }) => {
+          console.log(data); // get only the names of the users and store in an array
+          let errorDiv = document.getElementsByClassName("noResults")[0];
+          errorDiv.setAttribute("class", "noResults hidden");
+          let displayDiv = document.getElementsByClassName("ourPicks")[0];
+          displayDiv.setAttribute("class", "ourPicks");
+          let listDisplayer = document.getElementsByClassName(
+            "searchResultsList"
+          )[0];
+          listDisplayer.innerHTML = "";
+          let content = "";
+          data.forEach((dataItem, index) => {
+            const {
+              id,
+              name,
+              sun,
+              water,
+              url,
+              price,
+              toxicity,
+              staff_favorite
+            } = dataItem;
+            if (staff_favorite && index === 0) {
+              content +=
+                "<div class='staffFavorite'>" +
+                "<img " +
+                "src='" +
+                url +
+                "'" +
+                "class='plantImage' " +
+                "alt='plant image'" +
+                "/>" +
+                "<img " +
+                "src='images/icons/staff.svg' " +
+                "alt='staff favorite'" +
+                "class='staffFavoriteImage'" +
+                "/>" +
+                "<div class='data'>" +
+                "<h3 class='title'>" +
+                name +
+                "</h3>" +
+                "<div class='info'>" +
+                "<h4 class='price'>$" +
+                price +
+                "</h4>" +
+                "<div class='icons'>" +
+                "<img " +
+                "src='images/icons/" +
+                (toxicity ? "toxic" : "pet") +
+                ".svg' " +
+                "alt='dog illustrative icon' " +
+                "class='infoIcon1'" +
+                "/>" +
+                "<img " +
+                "src='images/icons/" +
+                (sun === "low"
+                  ? "low-sun"
+                  : sun === "high"
+                  ? "high-sun"
+                  : "no-sun") +
+                ".svg' " +
+                "alt='sun illustrative icon' " +
+                "class='infoIcon2'" +
+                "/>" +
+                "<img " +
+                "src='images/icons/" +
+                (water === "rarely"
+                  ? "1-drop"
+                  : water === "daily"
+                  ? "3-drops"
+                  : "2-drops") +
+                ".svg' " +
+                "alt='water drop illustrative icon' " +
+                "class='infoIcon3'" +
+                "/>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "</div>";
+            } else {
+              content +=
+                "<div class='staffDefault sd" +
+                index +
+                "'>" +
+                "<img " +
+                "src='" +
+                url +
+                "'" +
+                " class='plantImage'" +
+                " alt='plant image'" +
+                "/>" +
+                "<div class='data'>" +
+                "<h3 class='title'>" +
+                name +
+                "</h3>" +
+                "<div class='info'>" +
+                "<h4 class='price'>$" +
+                price +
+                "</h4>" +
+                "<div class='icons'>" +
+                "<img " +
+                "src='images/icons/" +
+                (toxicity ? "toxic" : "pet") +
+                ".svg' " +
+                "alt='dog illustrative icon' " +
+                "class='infoIcon1'" +
+                "/>" +
+                "<img " +
+                "src='images/icons/" +
+                (sun === "low"
+                  ? "low-sun"
+                  : sun === "high"
+                  ? "high-sun"
+                  : "no-sun") +
+                ".svg' " +
+                "alt='sun illustrative icon' " +
+                "class='infoIcon2'" +
+                "/>" +
+                "<img " +
+                "src='images/icons/" +
+                (water === "rarely"
+                  ? "1-drop"
+                  : water === "daily"
+                  ? "3-drops"
+                  : "2-drops") +
+                ".svg' " +
+                "alt='water drop illustrative icon' " +
+                "class='infoIcon3'" +
+                "/>" +
+                "</div>" +
+                "</div>" +
+                "</div>" +
+                "</div>";
+            }
+          });
+          listDisplayer.innerHTML = content;
+        })
+        .catch((error) => {
+          console.log(error);
+          let errorDiv = document.getElementsByClassName("noResults")[0];
+          errorDiv.setAttribute("class", "noResults");
+          let displayDiv = document.getElementsByClassName("ourPicks")[0];
+          displayDiv.setAttribute("class", "ourPicks hidden");
+        });
+    };
+  </script>
+</html>

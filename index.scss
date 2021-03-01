@@ -1,0 +1,918 @@
+body {
+    font-family: "Montserrat", sans-serif;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body select, body button {
+    outline: none;
+    border: none;
+}
+
+body header {
+    box-sizing: border-box;
+    display: flex;
+    padding: 54px 288px;
+    background: #75BC97;
+    height: 500px;
+    position: relative;
+    z-index: 0;
+}
+
+body header .plantManMobile {
+    display: none;
+    visibility: hidden;
+}
+
+body header .mobilePlant {
+    display: none;
+    visibility: hidden;
+}
+
+body header .plantMan {
+    position: absolute;
+    z-index: -2;
+    width: 335px;
+    height: 428px;
+    left: 800px;
+    top: 36px;
+    @media (max-width: 1340px) {
+        left: initial;
+        right: 220px;
+    }
+}
+
+body header .leftPlant {
+    position: absolute;
+    z-index: -1;
+    width: 862px;
+    height: 500px;
+    left: 0px;
+    top: 0px;
+}
+
+body header .rightPlant {
+    position: absolute;
+    z-index: -1;
+    width: 361px;
+    height: 500px;
+    right: 0;
+    top: 0px;
+}
+
+
+body header .content {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+body header .content .logoIcon {
+    width: 209px;
+    height: 25px;
+}
+
+body header .content h1 {
+    width: 400px;
+    height: 252px;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 70px;
+    line-height: 85px;
+    color: #FFFFFF;
+}
+
+body header .content .icon {
+    width: 35px;
+    height: 39px;
+}
+
+body main {
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    column-gap: 90px;
+    row-gap: 60px;
+    padding: 57px 293px;
+}
+
+body main .field {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 219px;
+}
+
+body main .field .imageWrapper {
+    align-self: flex-start;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 75px;
+    width: 75px;
+} 
+
+body main .field .imageWrapper .sun {
+    width: 75px;
+    height: 75px;
+}
+
+body main .field .imageWrapper .wateringcan {
+    width: 103px;
+    height: 75px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+body main .field .imageWrapper .dog {
+    width: 75px;
+    height: 62px;
+    transform: matrix(-1, 0, 0, 1, 0, 0);
+}
+
+body main .field p {
+    font-family: Montserrat;
+    font-style: normal;
+    font-size: 14px;
+    line-height: 22px;
+    color: #848484;
+    margin-top: 6px;
+    margin-bottom: 24px;
+}
+
+body main .field .selectWrapper {
+    position: relative;
+    display: flex;
+    width: 100%;
+    background-color: transparent;
+    height: 40px;
+}
+
+body main .field .selectWrapper > img {
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    transform: translateY(-50%) rotate(180deg);
+    z-index: -1;
+}
+
+body main .field .selectWrapper select {
+    border: 1px solid #A8A8A8;
+    box-sizing: border-box;
+    border-radius: 19px;
+    min-width: 150px;
+    background-color: transparent;
+    width: 100%;
+    cursor: pointer;
+    -webkit-appearance: none;
+    appearance: none;
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 27px;
+    color: #A8A8A8;
+    padding: 0 18px;
+}
+
+body main .field .selectWrapper select::-ms-ticks-after {
+    box-shadow: none;
+    border: none;
+}
+
+body main .field .selectWrapper select option {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 80px;
+    color: #A8A8A8;
+}
+
+body main .field .selectWrapper select option:checked,
+body main .field .selectWrapper select option:hover {
+    background: #75BC97;
+    color: white;
+}
+
+body main .field .selectWrapper select option:focus{
+    background-color:#FFF;
+    outline:none;
+    border:none;
+    box-shadow:none;
+}
+
+body main .field .selectWrapper select:focus {
+    border-radius: 19px 19px 0 0;
+}
+
+body main .field .selectWrapper select:focus ~ img {
+    transform: rotate(0deg) translateY(-50%);
+}
+
+body main .field .selectWrapper select::-ms-expand {
+display: none;
+}
+
+body .searchResults {
+    display: flex;
+    flex-direction: column;
+    background-color: #F2F2F2;
+}
+
+body .searchResults .noResults {
+    background: #F2F2F2;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    height: 203px;
+    padding: 70px;
+    z-index: 0;
+}
+
+body .searchResults .noResults > img {
+    position: absolute;
+    z-index: 0;
+    bottom: 67px;
+    left: 58%;
+    width: 107px;
+    height: 203px;
+}
+
+body .searchResults .noResults .text {
+    position: static;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    row-gap: 13px;
+    * {
+        margin: 0;
+    }
+}
+
+body .searchResults .noResults .text h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 45px;
+    line-height: 55px;
+    color: #A9A9A9;
+}
+body .searchResults .noResults .text h4 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 27px;
+    color: #A9A9A9;
+    max-width: 219px;
+}
+
+body .searchResults .ourPicks {
+    display: flex;
+    flex-direction: column;
+    padding: 37px 0;
+    margin: 0 auto;
+    * {
+        margin: 0; 
+        padding: 0;
+    }
+}
+
+body .searchResults .ourPicks button {
+    height: 50px;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    column-gap: 17.5px;
+    border: 1px solid #15573F;
+    box-sizing: border-box;
+    border-radius: 25px;
+    margin: 72px 0;
+    cursor: pointer;
+}
+
+body .searchResults .ourPicks button img {
+    width: 22px;
+    height: 17px;
+}
+
+body .searchResults .ourPicks button h2 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: 300;
+    font-size: 16px;
+    line-height: 20px;
+    color: #196146;
+}
+
+body .searchResults .ourPicks .titles {
+    display: flex;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+body .searchResults .ourPicks .titles > img {
+    width: 158px;
+    height: 78px;
+}
+
+body .searchResults .ourPicks .titles > h1 {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 55px;
+    line-height: 67px;
+    color: #0C261C;
+    margin-bottom: 54px;
+}
+
+body .searchResults .ourPicks .searchResultsList {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    grid-template-rows: repeat(3, 1fr);
+    grid-row-gap: 20px;
+    grid-column-gap: 25px;
+    grid-template-areas: 
+    'area1 area1 area2 area3'
+    'area1 area1 area4 area5'
+    'area6 area7 area8 area9';
+    * {
+        margin: 0;
+    }
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite {
+    grid-area: area1;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd1 {
+    grid-area: area2;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd2 {
+    grid-area: area3;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd3 {
+    grid-area: area4;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd4 {
+    grid-area: area5;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd5 {
+    grid-area: area6;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd6 {
+    grid-area: area7;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd7 {
+    grid-area: area8;
+}
+
+body .searchResults .ourPicks .searchResultsList .sd8 {
+    grid-area: area9;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite {
+    padding: 28px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    row-gap: 16px;
+    width: 100%; 
+    height: 100%;
+    max-width: 437px;
+    max-height: 510px;
+    position: relative;
+    background-color: white;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite > .staffFavoriteImage {
+    position: absolute;
+    top: 31px;
+    left: 0;
+    width: 189px;
+    height: 43px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite > .plantImage {
+    flex: 1;
+    object-fit: contain;
+    max-width:299px;
+    height: 353px;
+    align-self: center;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data {
+    display: flex;
+    column-gap: 20px;
+    justify-content: space-between;
+    width: 100%;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 35px;
+    line-height: 37px;
+    color: #1E6B4E;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    justify-content: flex-end;
+    align-items: flex-end;
+    row-gap: 16px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .price {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 24px;
+    line-height: 28px;
+    color: #257556;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: 10px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon1 {
+    width: 21px;
+    height: 16px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon2 {
+    width: 19px;
+    height: 19px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon3 {
+    width: 12px;
+    height: 16px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault {
+    padding: 12px 19px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    max-width: 206px;
+    max-height: 245px;
+    position: relative;
+    background-color: white;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault > .plantImage {
+    flex: 1;
+    object-fit: contain;
+    max-width: 176px;
+    height: 151px;
+    align-self: center;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data {
+    display: flex;
+    flex-direction: column;
+    column-gap: initial;
+    justify-content: initial;
+    width: 100%;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .title {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    color: #1E6B4E;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    justify-content: space-between;
+    align-items: center;
+    row-gap: 16px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .price {
+    font-family: Montserrat;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 28px;
+    color: #257556;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 12px;
+    column-gap: 10px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon1 {
+    width: 21px;
+    height: 16px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon2 {
+    width: 19px;
+    height: 19px;
+}
+
+body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon3 {
+    width: 12px;
+    height: 16px;
+}
+
+@media (max-width: 1140px) {
+    body header {
+        box-sizing: border-box;
+        display: flex;
+        padding: 39px 35px;
+        background: #75BC97;
+        height: 593px;
+        position: relative;
+        z-index: 0;
+        overflow-x: hidden;
+    }
+
+    body header .plantMan {
+        display: none;
+        visibility: hidden;
+    }
+
+    body header .leftPlant {
+        display: none;
+        visibility: hidden;
+    }
+    
+    body header .rightPlant {
+        display: none;
+        visibility: hidden;
+    }
+    body header .mobilePlant {
+        display: initial;
+        visibility: initial;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 412px;
+        object-fit: cover;
+        object-position: bottom center;
+        z-index: -1;
+    }
+    body header .plantManMobile {
+        display: initial;
+        visibility: initial;
+        position: absolute;
+        z-index: -2;
+        width: 276px;
+        height: 234px;
+        top: initial;
+        bottom: 15px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    body header .content {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: fit-content;
+        overflow-x: hidden;
+        row-gap: 15px;
+    }
+    
+    body header .content .logoIcon {
+        width: 163px;
+        height: 20px;
+    }
+    
+    body header .content h1 {
+        margin: 0;
+        margin-top: 20px;
+        width: initial;
+        height: initial;
+        max-height: initial;
+        max-width: 251px;
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 49px;
+        color: #FFFFFF;
+    }
+    
+    body header .content .icon {
+        width: 35px;
+        height: 39px;
+    }
+    body main {
+        column-gap: 90px;
+        row-gap: 40px;
+        padding: 57px 15px;
+        margin: 0 auto;
+    }
+    body .searchResults {
+        display: initial;
+        flex-direction: column;
+    }
+    body .searchResults .noResults {
+        padding: 0 37px;
+        padding-top: 47px;
+        padding-bottom: 31px;
+        margin: 0 auto;
+        flex-direction: column-reverse;
+        align-items: center;
+        height: fit-content;
+    }
+    body .searchResults .noResults > img {
+        position: initial;
+        bottom: initial;
+        left: initial;
+        width: 84px;
+        height: fit-content;
+        transform: initial;
+    }
+    body .searchResults .noResults .text {
+        row-gap: 16px;
+    }
+    body .searchResults .noResults .text h4 {
+        padding-bottom: 37px;
+    }
+    //=================================>
+    body .searchResults .ourPicks {
+        background: #F2F2F2;
+        display: flex;
+        flex-direction: column;
+        padding: 32px 0;
+        margin: 0;
+        * {
+            margin: 0; 
+            padding: 0;
+        }
+    }
+    
+    body .searchResults .ourPicks button {
+        height: 50px;
+        width: 88%;
+        align-self: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        column-gap: 17.5px;
+        border: 1px solid #15573F;
+        box-sizing: border-box;
+        border-radius: 25px;
+        margin: 72px 0;
+        cursor: pointer;
+    }
+    
+    body .searchResults .ourPicks button img {
+        width: 22px;
+        height: 17px;
+    }
+    
+    body .searchResults .ourPicks button h2 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: 300;
+        font-size: 16px;
+        line-height: 20px;
+        color: #196146;
+    }
+    
+    body .searchResults .ourPicks .titles {
+        display: flex;
+        flex-direction: column;
+        row-gap: 16px;
+        padding: 0 46px;
+    }
+    
+    body .searchResults .ourPicks .titles > img {
+        width: 146px;
+        height: 72px;
+    }
+    
+    body .searchResults .ourPicks .titles > h1 {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 40px;
+        line-height: 49px;
+        color: #0C261C;
+        margin-bottom: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList {
+        width: 100%;
+        max-width: 100%;
+        overflow-x: scroll;
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        &::-webkit-scrollbar {
+            display: none;
+        }
+        /* Hide scrollbar for IE, Edge and Firefox */
+        -ms-overflow-style: none; /* IE and Edge */
+        scrollbar-width: none; /* Firefox */
+        box-sizing: border-box;
+        padding: 0 27px;
+        column-gap: 16px;
+        display: flex;
+        * {
+            margin: 0;
+        }
+    }
+
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite,
+    body .searchResults .ourPicks .searchResultsList .staffDefault {
+        max-width: 206px;
+        height: 245px !important;
+        height: 100%;
+        justify-content: space-between !important;
+    }
+
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .plantImage,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .plantImage {
+        flex: initial !important;
+        height: 145px !important;
+        width: 145px !important;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite > .staffFavoriteImage {
+        position: absolute;
+        top: 20px;
+        left: 0;
+        width: 132px;
+        height: 34px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite > .plantImage {
+        flex: 1;
+        object-fit: contain;
+        max-width: 206px;
+        height: 151px;
+        align-self: center;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data {
+        display: flex;
+        column-gap: 20px;
+        justify-content: space-between;
+        width: 100%;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 35px;
+        line-height: 37px;
+        color: #1E6B4E;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        justify-content: flex-end;
+        align-items: flex-end;
+        row-gap: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .price {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 24px;
+        line-height: 28px;
+        color: #257556;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        column-gap: 10px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon1 {
+        width: 21px;
+        height: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon2 {
+        width: 19px;
+        height: 19px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons .infoIcon3 {
+        width: 12px;
+        height: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite,
+    body .searchResults .ourPicks .searchResultsList .staffDefault {
+        padding: 12px 19px;
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        height: 100%;
+        position: relative;
+        row-gap: 0;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data {
+        display: flex;
+        flex-direction: column;
+        column-gap: initial;
+        justify-content: initial;
+        width: 100%;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .title,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .title {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 28px;
+        color: #1E6B4E;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info {
+        display: flex;
+        flex-direction: row;
+        height: 100%;
+        justify-content: space-between;
+        align-items: center;
+        row-gap: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .price,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .price {
+        font-family: Montserrat;
+        font-style: normal;
+        font-weight: bold;
+        font-size: 16px;
+        line-height: 28px;
+        color: #257556;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffFavorite .data .info .icons,
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 12px;
+        column-gap: 10px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon1 {
+        width: 21px;
+        height: 16px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon2 {
+        width: 19px;
+        height: 19px;
+    }
+    
+    body .searchResults .ourPicks .searchResultsList .staffDefault .data .info .icons .infoIcon3 {
+        width: 12px;
+        height: 16px;
+    }
+}
+
+body .searchResults .hidden {
+    display: none;
+    visibility: hidden;
+}
